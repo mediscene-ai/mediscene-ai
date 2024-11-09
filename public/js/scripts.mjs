@@ -17,7 +17,7 @@ function setInitialPrompt(input) {
     isLoading = true;
     disableAllButtons(true);
     
-    const defaultPrompt = `I am a medical student, and we are going to create a diagnosis process simulation together. You will provide me with information about the disease related to ${input}, and I will try to guess it. Give me information step by step don’t reveal everything at once. When I request lab test results or similar, respond in a way suitable for the simulation. For each question I ask, provide one piece of information and wait for the next question. In the end, I will make a final diagnosis, and you will tell me if it’s correct or not, then provide a report. Do not guess the disease yourself; just answer my questions step by step so I can try to identify the disease based on your responses. Start with age, gender, and symptom details.`;
+    const defaultPrompt = `I'm a medical student, and together, we’re going to create a diagnosis simulation. You'll provide me with information about ${input}-related diseases, and I'll try to guess the condition. Give me information step by step, without revealing everything at once. When I request tests or lab results, respond in a way that fits the simulation. Each time I ask a question, you'll give me one piece of information and then wait for my next question. At the end, I'll make a diagnosis, and you’ll confirm if it's correct or not and provide a final report. Don't make any guesses yourself; just answer my questions step by step so I can try to deduce the disease. Start with the patient's age, gender, and primary complaints.`;
 
     fetch('/set-initial-prompt', {
         method: 'POST',
