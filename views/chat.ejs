@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Chat with AI Model</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <h2>Medi - Scene App</h2>
+
+    <div id="initial-buttons">
+      <button onclick="setInitialPrompt('Anatomy')">Anatomy</button>
+      <button onclick="setInitialPrompt('Histology and Embryology')">
+      Histology and Embryology
+      </button>
+      <button onclick="setInitialPrompt('Physiology')">Physiology</button>
+      <button onclick="setInitialPrompt('Medical Biochemistry')">
+      Medical Biochemistry
+      </button>
+      <button onclick="setInitialPrompt('Medical Microbiology')">
+      Medical Microbiology
+      </button>
+      <button onclick="setInitialPrompt('Medical Pathology')">
+      Medical Pathology
+      </button>
+      <button onclick="setInitialPrompt('Medical Pharmacology')">
+      Medical Pharmacology
+      </button>
+      <button onclick="setInitialPrompt('Internal Medicine Group')">
+      Internal Medicine Group
+      </button>
+      <button onclick="setInitialPrompt('Pediatrics')">Pediatrics</button>
+      <button onclick="setInitialPrompt('Surgical Group')">Surgical Group</button>
+      <button onclick="setInitialPrompt('Obstetrics and Gynecology')">
+      Obstetrics and Gynecology
+      </button>
+    </div>
+
+    <button id="new-case-button" onclick="resetChat()">New Case</button>
+
+    <!-- Chat -->
+    <form id="chat-form" method="POST" action="/send-prompt">
+      <label for="prompt">Prompt:</label>
+      <textarea name="prompt" id="prompt" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+
+    <h3>Chat History</h3>
+    <div id="chat-history">
+      <% chatHistory.forEach(entry => { %>
+      <p>
+        <strong><%= entry.role === 'user' ? 'User' : 'Model' %>:</strong>
+        <%= entry.text %>
+      </p>
+      <% }); %>
+    </div>
+
+    <script type="module" src="/js/scripts.mjs"></script>
+  </body>
+</html>
